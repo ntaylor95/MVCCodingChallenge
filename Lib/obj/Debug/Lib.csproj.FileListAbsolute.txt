@@ -1,0 +1,7 @@
+c:\users\ntaylor\documents\visual studio 2013\Projects\NicoleFun\Lib\bin\Debug\Lib.dll
+c:\users\ntaylor\documents\visual studio 2013\Projects\NicoleFun\Lib\bin\Debug\Lib.pdb
+c:\users\ntaylor\documents\visual studio 2013\Projects\NicoleFun\Lib\bin\Debug\Models.dll
+c:\users\ntaylor\documents\visual studio 2013\Projects\NicoleFun\Lib\bin\Debug\Models.pdb
+c:\users\ntaylor\documents\visual studio 2013\Projects\NicoleFun\Lib\obj\Debug\Lib.csprojResolveAssemblyReference.cache
+c:\users\ntaylor\documents\visual studio 2013\Projects\NicoleFun\Lib\obj\Debug\Lib.dll
+c:\users\ntaylor\documents\visual studio 2013\Projects\NicoleFun\Lib\obj\Debug\Lib.pdb

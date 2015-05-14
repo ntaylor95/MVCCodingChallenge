@@ -1,0 +1,25 @@
+﻿@using Lib.PageViews;
+@using Lib.ModelViews;
+@model Lib.ModelViews.DependentBenefitsView
+
+<div class="dependent">
+    <div style="width:200px;display:inline-block;">
+        @Model.Model.LastName
+    </div>
+
+    <div style="width:200px;display:inline-block;">
+        @Model.Model.FirstName
+    </div>
+
+    <div style="width:200px;display:inline-block;">
+        &nbsp;
+    </div>
+
+    <div style="width:200px;display:inline-block;">
+        &nbsp;
+    </div>
+
+    <div style="width:75px;display:inline-block;text-align:right;">
+        @Model.DependentBenefitsCostString
+    </div>
+</div>

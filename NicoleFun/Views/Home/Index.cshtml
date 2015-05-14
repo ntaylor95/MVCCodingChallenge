@@ -1,0 +1,78 @@
+﻿@using Lib.PageViews;
+@using Lib.ModelViews;
+@model Lib.PageViews.EmployeeBenefitsPageView
+
+@{
+    ViewBag.Title = Model.PageTitle;
+}
+
+<script>
+    $(document).ready(function () {
+        $("#AddEmployee").on("click", function (e) {
+            e.preventDefault();
+            $("#uxAddEmployee").show();
+            $("#AddEmployee").hide();
+        });
+
+        $("#btnAddEmployee").on("click", function (e) {
+            $.when(AddEmployee()).then(function (resp) {
+                $("#uxAddEmployee").hide();
+                $("#AddEmployee").show();
+                console.log(resp);
+                UpdateEmployeeList(resp);
+            });
+        });
+    });
+
+    function AddEmployee()
+    {
+        var deferred = $.Deferred();
+        var model = {};
+
+        model.FirstName = $("#FirstName").val();
+        model.LastName = $("#LastName").val();
+
+        $.post("/Home/Update", model, function (resp) {
+            deferred.resolve(resp);
+        });
+
+        return deferred.promise();
+    }
+
+    function UpdateEmployeeList(employee)
+    {
+        $.post("/Home/GetEmployees", employee, function (resp) {
+            $("#employees").append(resp);
+        });
+    }
+
+    function AddDependent(employeeId)
+    {
+        alert(employeeId);
+    }
+
+</script>
+
+<a href="#" id="AddEmployee">Add Employee</a>
+
+<div id="uxAddEmployee" style="display:none;">
+    <div>
+        <label>First Name:</label>
+        @Html.TextBox("FirstName")
+    </div>
+    <div>
+        <label>Last Name:</label>
+        @Html.TextBox("LastName")
+    </div>
+    <div>
+        <input type="button" value="Add Employee" id="btnAddEmployee"/>
+    </div>
+</div>
+
+<div class="employees" id="employees" style="clear:both;">
+    @{foreach (EmployeeBenefitsView employee in Model.Employees)
+    {
+       @Html.Partial("EmployeeBenefitsPartialView", employee)
+    }
+}
+</div>

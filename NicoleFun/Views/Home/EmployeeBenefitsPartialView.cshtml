@@ -1,0 +1,44 @@
+﻿@using Lib.PageViews;
+@using Lib.ModelViews;
+@model Lib.ModelViews.EmployeeBenefitsView
+
+<div class="employee" style="padding:5px 5px 0px 5px;border-top:1px solid black;">
+    <div style="width:200px;display:inline-block;">
+        @Model.Model.LastName
+    </div>
+
+    <div style="width:200px;display:inline-block;">
+        @Model.Model.FirstName
+    </div>
+
+    <div style="width:200px;display:inline-block;">
+        @Model.Model.Id
+    </div>
+
+    <div style="width:200px;display:inline-block;">
+        @Model.YearlySalaryString
+    </div>
+
+    <div style="width:80px;display:inline-block;text-align:right;">
+        @Model.EmployeeBenefitsCostString
+    </div>
+
+    <div class="dependents" style="padding:5px;">        
+        <a href="#" onclick="javascript:AddDependent(@Model.Id)">Add Dependent</a>
+        @{
+            if (Model.Dependents.Count() == 0)
+            {
+                <text>No Dependents</text>
+            }
+            else {              
+                foreach (DependentBenefitsView dependent in Model.Dependents)
+                {
+                    @Html.Partial("DependentBenefitsPartialView", dependent)
+                }
+            }
+        }
+    </div>
+
+
+    <div style="width:900px;text-align:right;font-weight:bold;font-size:1.2em;">Total Benefits Cost: @Model.TotalBenefitsCostString</div>
+</div>
